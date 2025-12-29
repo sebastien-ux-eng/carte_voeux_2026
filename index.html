@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TechX | Solutions Numériques</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">Tech<span>X</span></div>
+        <nav class="nav">
+            <a href="#accueil">Accueil</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <a href="#cta-section">2026</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>TechX</h1>
+            <h2>Transformez vos idées en réalité numérique</h2>
+            <p>
+                Bienvenue chez TechX — votre partenaire en solutions numériques innovantes. 
+                Nous créons des expériences digitales de qualité exceptionnelle pour propulser votre entreprise 
+                vers le succès. Que ce soit le développement web, l'automatisation intelligente ou les solutions sur mesure, 
+                nous sommes prêts à relever vos défis.
+            </p>
+            <button class="btn-primary">Découvrir nos services</button>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <h2>Nos Compétences</h2>
+        <div class="service-box">
+            <div class="card">
+                <h3>💻 Développement Web</h3>
+                <p>Sites modernes, applications web dynamiques et plateformes scalables. Nous utilisons les dernières technologies pour garantir performance et sécurité.</p>
+            </div>
+            <div class="card">
+                <h3>🤖 Solutions Numériques</h3>
+                <p>Automatisation intelligente, outils digitaux sur mesure et intégration de systèmes. Optimisez vos processus et réduisez les coûts.</p>
+            </div>
+            <div class="card">
+                <h3>✨ Innovation & IA</h3>
+                <p>Intelligence artificielle, machine learning et technologies émergentes. Restez compétitif dans l'économie numérique de demain.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA CARTE DE VOEUX -->
+    <section id="cta-section" class="cta">
+        <h2>Célébrez 2026 avec Style 🎉</h2>
+        <p>Créez une carte de vœux personnalisée et professionnelle avec TechX — 
+           un moyen élégant de souhaiter une bonne année à vos clients, partenaires et collaborateurs.</p>
+        <button class="btn-cta" onclick="goToCard()">➜ Créer ma carte de vœux 2026</button>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <h2>Nous Contacter</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>📍 Adresse</h3>
+                <p>Bukavu, Sud-Kivu<br>République Démocratique du Congo</p>
+                
+                <h3>📧 Email</h3>
+                <p><a href="mailto:ishukwejustin@gmail.com">ishukwejustin@gmail.com</a></p>
+                
+                <h3>📱 Téléphone</h3>
+                <p><a href="tel:+243997604293">+243 997 604 293</a></p>
+            </div>
+            <div class="contact-form">
+                <h3>Envoyez-nous un message</h3>
+                <form id="contactForm">
+                    <input type="text" id="from_name" placeholder="Votre nom" required>
+                    <input type="email" id="from_email" placeholder="Votre email" required>
+                    <textarea id="message" placeholder="Votre message..." rows="5" required></textarea>
+                    <button type="submit" class="btn-contact">Envoyer</button>
+                </form>
+                <p id="formMessage"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 TechX — Tous droits réservés</p>
+        <p>Créé avec passion pour l'innovation numérique</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize EmailJS with your Public Key
+        emailjs.init("JuyQgOxy3uRYVIxCr");
+
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const serviceID = "service_hoh1aey"; // Gmail service
+            const templateID = "template_6kjm1aj"; // Corrected template ID
+
+            const templateParams = {
+                to_email: "ishukwejustin@gmail.com", // Your email to receive messages
+                from_name: document.getElementById("from_name").value,
+                from_email: document.getElementById("from_email").value,
+                message: document.getElementById("message").value,
+                reply_to: document.getElementById("from_email").value
+            };
+
+            emailjs.send(serviceID, templateID, templateParams).then(
+                function(response) {
+                    console.log("Email envoyé!", response);
+                    document.getElementById("formMessage").style.color = "#27ae60";
+                    document.getElementById("formMessage").textContent = "✓ Message envoyé avec succès!";
+                    document.getElementById("contactForm").reset();
+                    setTimeout(() => {
+                        document.getElementById("formMessage").textContent = "";
+                    }, 5000);
+                },
+                function(error) {
+                    console.error("Erreur EmailJS:", error);
+                    document.getElementById("formMessage").style.color = "#e74c3c";
+                    document.getElementById("formMessage").textContent = "✗ Erreur: " + (error.text || error);
+                }
+            );
+        });
+    </script>

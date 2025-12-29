@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d0f14;
+    color: white;
+}
+
+.top {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: black;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px;
+    justify-content: center;
+}
+
+.controls {
+    width: 320px;
+    background: #151923;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.controls label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.controls input,
+.controls textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.photo-controls {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.photo-controls button {
+    margin: 4px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #00c6ff;
+}
+
+.zoom {
+    margin-top: 5px;
+}
+
+textarea {
+    resize: none;
+    height: 70px;
+}
+
+.slogan-box {
+    display: flex;
+    gap: 10px;
+}
+
+.slogan-box button {
+    background: #00c6ff;
+    border: none;
+    border-radius: 8px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.download {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 25px;
+    background: #00c6ff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.preview canvas {
+    background: white;
+    border-radius: 25px;
+}
+
+/* FOOTER */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #2c3e50;
+    color: #95a5a6;
+}
+
+@media (max-width: 768px) {
+    .photo-controls {
+        display: none;
+    }
+}

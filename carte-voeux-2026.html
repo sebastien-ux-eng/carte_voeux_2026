@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer votre carte de vœux 2026 | TechX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="carte.css">
+    <script defer src="https://unpkg.com/face-api.js"></script>
+</head>
+<body>
+
+<header class="top">
+    <a href="index.html" class="back-btn">← Retour</a>
+    <h1>🎉 Carte de vœux 2026</h1>
+    <p>Propulsé par TechX • Intelligence Numérique</p>
+</header>
+
+<section class="container">
+
+    <!-- FORMULAIRE -->
+    <div class="controls">
+        <label>Nom</label>
+        <input type="text" id="name" placeholder="Votre nom">
+
+        <label>Style de carte</label>
+<select id="style" onchange="drawCard()">
+    <option value="classique">Classique</option>
+    <option value="professionnel">Professionnel</option>
+    <option value="moderne">Moderne</option>
+</select>
+
+<label>Message IA</label>
+<div class="slogan-box">
+    <input type="text" id="message" readonly>
+    <button onclick="generateMessage()">🤖 IA</button>
+</div>
+
+        <label>Slogan (IA)</label>
+        <div class="slogan-box">
+            <input type="text" id="slogan">
+            <button onclick="generateSlogan()">🎲 Générer</button>
+        </div>
+
+        <label>Photo</label>
+        <input type="file" accept="image/*" onchange="loadImage(event)">
+        <p class="info">Faites défiler ou glissez pour cadrer votre image</p>
+
+        <button class="download" onclick="downloadCard()">⬇ Télécharger la carte</button>
+    </div>
+
+    <!-- CARTE -->
+    <div class="preview">
+        <canvas id="cardCanvas" width="420" height="600"></canvas>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 TechX — Tous droits réservés</p>
+        <p>Créé avec passion pour l'innovation numérique</p>
+    </footer>
+    
+<script src="carte.js"></script>
+<script>
+Promise.all([
+    faceapi.nets.tinyFaceDetector.loadFromUri('https://unpkg.com/face-api.js/models')
+]).then(() => console.log("Face API prête"));
+</script>
+</body>
+</html>
