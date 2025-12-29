@@ -213,7 +213,7 @@ body {
     transition: 0.3s;
 }
 .btn-link {
-  display: inline-block;
+  /* display: inline-block;
   padding: 12px 24px;
   background-color: #4CAF50;
   color: white;
@@ -221,7 +221,7 @@ body {
   border-radius: 6px;
   font-size: 16px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; */
     position: absolute;
     left: 30px;
     top: 50%;
@@ -369,4 +369,5 @@ body {
             color: white;
 
         }
+
 
