@@ -244,7 +244,7 @@ button,
 }
 
 .btn-cta:hover {
-    background: #ecf0f1;
+    background: #D3D3D3;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
@@ -377,3 +377,4 @@ button,
 
     .service-box { grid-template-columns: 1fr; }
 }
+
